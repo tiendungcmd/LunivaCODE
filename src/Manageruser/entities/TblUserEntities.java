@@ -26,11 +26,7 @@ public class TblUserEntities {
 	public TblUserEntities() {
 		
 	}
-	@Override
-	public String toString() {
-        return user_id + " " + group_id + " " + login_name+" "+password+" "+full_name+" "+full_name_kana+" "+email
-        		+" "+tel+" "+birthday+" "+rule+" "+Salt;
-    }
+	
  
 	public TblUserEntities(int user_id, int group_id, String login_name, String password, String full_name,
 			String full_name_kana, String email, String tel, Date birthday, int rule, String salt) {

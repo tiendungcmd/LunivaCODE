@@ -24,8 +24,10 @@ public class Common {
 	/**
 	 * hàm mã hóa password
 	 * 
-	 * @param pw   mat khẩu
-	 * @param salt salt
+	 * @param pw
+	 *            mat khẩu
+	 * @param salt
+	 *            salt
 	 * @return Chuoi đã mã hóa
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
@@ -41,11 +43,13 @@ public class Common {
 
 	// kiểm tra mã hoa
 	/**
-	 * So sáng pass do người dùng nhập vào sau khi được mã hóa với pass lấy ra được
-	 * trong DB
+	 * So sáng pass do người dùng nhập vào sau khi được mã hóa với pass lấy ra
+	 * được trong DB
 	 * 
-	 * @param pass   pass do người dùng nhập vào sau khi được mã hóa
-	 * @param passDB pass lấy ra được trong DB
+	 * @param pass
+	 *            pass do người dùng nhập vào sau khi được mã hóa
+	 * @param passDB
+	 *            pass lấy ra được trong DB
 	 * @return nếu giống nhau trả về true, nếu khác nhau trả về false
 	 */
 	public boolean compare(String pass, String passDB) {
@@ -60,7 +64,8 @@ public class Common {
 	/**
 	 * Kiểm tra xem session đã tồn tại chưa
 	 * 
-	 * @param ss tên session
+	 * @param ss
+	 *            tên session
 	 * @return
 	 */
 	// kiem tra login session
@@ -80,14 +85,14 @@ public class Common {
 	 * @return
 	 */
 	public static List<Integer> getListPaging(int totalUser, int limit, int currentPage) {
-		//tao danh sach chua các page sẽ hiển thị
+		// tao danh sach chua các page sẽ hiển thị
 		List<Integer> lst = new ArrayList<>();
 		// tinh tong so page
 		int totalPage = getTotalPage(totalUser, limit);
 		// neu tong so page lon hon gia tri hien tai
-		int begin=1;
+		int begin = 1;
 		if (totalPage >= currentPage) {
-			
+
 			// neu page hien tai chia het cho 3 -> chi so bat dau cua lstpaging
 			if (currentPage % 3 == 0) {
 				begin = currentPage - 2;
@@ -96,17 +101,18 @@ public class Common {
 				begin = (currentPage / 3) * 3 + 1;
 			}
 			// duyet vong for de vuu vao mang
-			//danh sách chưa các page hiển thị là 3 page tính từ page vừa tính được
-			
+			// danh sách chưa các page hiển thị là 3 page tính từ page vừa tính
+			// được
 
-			}
-		for (int i = 1; i <= 3 && begin <=totalPage; i++) {
-			
+		}
+		for (int i = 1; i <= 3 && begin <= totalPage; i++) {
+
 			lst.add(begin++);
 		}
 		// lst.add(i);
 		return lst;
 	}
+
 	/**
 	 * lay vi tri data can lay
 	 * 
@@ -117,6 +123,7 @@ public class Common {
 	public static int getOffset(int currentPage, int limit) {
 		return currentPage * limit - limit + 1;
 	}
+
 	/**
 	 * lay so luong hien thi ban ghi tren 1 trang
 	 * 
@@ -140,6 +147,7 @@ public class Common {
 		}
 		return totalPage;
 	}
+
 	/**
 	 * thay the các kí tự đặc biệt
 	 * 
@@ -152,67 +160,94 @@ public class Common {
 		fullName.replace("_", "\\_");
 		return fullName;
 	}
+
 	/**
 	 * Lay nam hien tai
+	 * 
 	 * @return nam hien tai
 	 */
 	public static int getYearNow() {
 		Calendar cal = Calendar.getInstance();
 		return cal.get(Calendar.YEAR);
-		
+
 	}
+
 	/**
 	 * Lay thang hien tai
+	 * 
 	 * @return thang hien tai
 	 */
 	public static int getMonthNow() {
 		Calendar cal = Calendar.getInstance();
 		return cal.get(Calendar.MONTH);
 	}
+
 	/**
 	 * Lay ngay hien tai
+	 * 
 	 * @return ngay hien tai
 	 */
 	public static int getDayNow() {
 		Calendar cal = Calendar.getInstance();
 		return cal.get(Calendar.DATE);
 	}
+
+	/**
+	 * cho ngay thagn nam vao 1 danh sach
+	 * 
+	 * @return list ngay thang nam
+	 */
+	public static List<Integer> getListDMY() {
+		List<Integer> lstDMY = new ArrayList<>();
+		lstDMY.add(Common.getYearNow());
+		lstDMY.add(Common.getMonthNow());
+		lstDMY.add(Common.getDayNow());
+		return lstDMY;
+	}
+
 	/**
 	 * Lay danh sach cac năm từ 1900 - năm hiện tại
-	 * @param yearFrom năm 1900
-	 * @param yearTo năm hiện tại
+	 * 
+	 * @param yearFrom
+	 *            năm 1900
+	 * @param yearTo
+	 *            năm hiện tại
 	 * @return danh sách các năm
 	 */
-	public static List<Integer> getListYear(int yearFrom,int yearTo) {
-		List<Integer> lstYear = new ArrayList();
-		
-		for(int i=yearFrom;i<=yearTo;i++) {
+	public static List<Integer> getListYear(int yearFrom, int yearTo) {
+		List<Integer> lstYear = new ArrayList<>();
+
+		for (int i = yearFrom; i <= yearTo; i++) {
 			lstYear.add(i);
 		}
 		return lstYear;
-		
+
 	}
+
 	/**
 	 * Lấy danh sách tháng
+	 * 
 	 * @return danh sách tháng
 	 */
-	public static List<Integer> getListMonth(){
-		List<Integer> lstMonth = new ArrayList();
-		for(int i=1;i<=12;i++) {
+	public static List<Integer> getListMonth() {
+		List<Integer> lstMonth = new ArrayList<>();
+		for (int i = 1; i <= 12; i++) {
 			lstMonth.add(i);
 		}
 		return lstMonth;
 	}
+
 	/**
 	 * lay danh sách ngày
+	 * 
 	 * @return danh sách ngày
 	 */
-	public static List<Integer> getListDay(){
-		List<Integer> lstDay = new ArrayList();
-		for(int i=1;i<=31;i++) {
+	public static List<Integer> getListDay() {
+		List<Integer> lstDay = new ArrayList<>();
+		for (int i = 1; i <= 31; i++) {
 			lstDay.add(i);
 		}
 		return lstDay;
 	}
-	
+
 }

@@ -44,5 +44,14 @@ public class Constant {
 			public static final int PAGE_DEFAULT = 1;
 			public static final int LIMIT_PAGE = 3;
 			public static final int YEAR_BEGIN = 1900;
+			//---------------DEFAULT MÀN HÌNH ADM003
+			public static final String LOGIN_NAME = "";
+			public static final String FULL_NAME = "";
+			public static final String FULL_NAME_KANA = "";
+			public static final String EMAIL = "";
+			public static final String PASS = "";
+			public static final String TEL ="";
+			public static final int TOLTAL =0;
+			
 			
 }

@@ -32,9 +32,6 @@ public class MstGroupEntities {
 	public void setGroup_name(String group_name) {
 		this.group_name = group_name;
 	}
-	@Override
-	public String toString() {
-		return "MstGroupEntities [group_id=" + group_id + ", group_name=" + group_name + "]";
-	}
+	
 
 }

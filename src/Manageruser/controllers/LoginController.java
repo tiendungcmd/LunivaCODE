@@ -78,7 +78,6 @@ public class LoginController extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(Constant.LINK_ADM001_JSP);
 				// bat dau chuyen huong
 				dispatcher.forward(request, response);
-
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

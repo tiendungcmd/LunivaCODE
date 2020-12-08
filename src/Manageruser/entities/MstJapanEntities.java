@@ -32,9 +32,5 @@ public String getName_level() {
 public void setName_level(String name_level) {
 	this.name_level = name_level;
 }
-@Override
-public String toString() {
-	return "MstJapanEntities [code_level=" + code_level + ", name_level=" + name_level + "]";
-}
- 
+
 }

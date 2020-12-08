@@ -183,7 +183,7 @@ public class TblUserDaoImpl extends BaseDaoImpl implements TblUserDao {
 					us.setUser_id(rs.getInt("user_id"));
 					us.setFull_name(rs.getString("full_name"));
 					us.setBirthday(rs.getDate("birthday"));
-					us.setTel(rs.getInt("tel"));
+					us.setTel(rs.getString("tel"));
 					us.setEmail(rs.getString("email"));
 					us.setGroup_name(rs.getString("group_name"));
 					us.setName_level(rs.getString("name_level"));
