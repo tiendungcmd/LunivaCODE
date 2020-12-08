@@ -22,6 +22,8 @@ public class Constant {
 			public static final String LINK_ADM001_JSP = "view/jsp/ADM001.jsp";
 			// đường link đến ADM002.jsp
 			public static final String LINK_ADM002_JSP = "view/jsp/ADM002.jsp";
+			//duong lin den ADM003.jsp
+			public static final String LINK_ADM003_JSP = "view/jsp/ADM003.jsp";
 			public static final String SYSTEM_ERROR_JSP = "view/jsp/system_error.jsp";
 			// URL đến ListUserController
 			public static final String URL_ADM002 = "ADM002";
@@ -41,4 +43,6 @@ public class Constant {
 			public static final int pageSize = 3;
 			public static final int PAGE_DEFAULT = 1;
 			public static final int LIMIT_PAGE = 3;
+			public static final int YEAR_BEGIN = 1900;
+			
 }

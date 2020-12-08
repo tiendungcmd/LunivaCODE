@@ -15,7 +15,7 @@ import Manageruser.entities.MstGroupEntities;
 import Manageruser.entities.MstJapanEntities;
 
 /**
- * @author LA-PM
+ * @author Bui Tien Dung
  *
  */
 public class MstJapanDaoImpl extends BaseDaoImpl implements MstJapanDAO{
@@ -33,7 +33,7 @@ public class MstJapanDaoImpl extends BaseDaoImpl implements MstJapanDAO{
 			//kiem tra neu thanh cong
 			if(conn!=null){
 				// tao câu truy vấn
-				String sql = "select group_id,group_name from mst_group ";
+				String sql = "select code_level,name_level from mst_japan ";
 				// Thực hiện câu truy vấn
 				PreparedStatement pstm = conn.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
@@ -55,9 +55,12 @@ public class MstJapanDaoImpl extends BaseDaoImpl implements MstJapanDAO{
 			closeConnection();
 		}
 		// TODO Auto-generated method stub
-		return null;
+		return lstJapan;
 	}
 
-	
+	public static void main(String[] args) {
+		MstJapanDAO ms = new MstJapanDaoImpl();
+		System.out.println(ms.getAllMstJapan());
+	}
 
 }

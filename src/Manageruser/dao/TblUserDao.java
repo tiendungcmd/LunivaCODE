@@ -24,5 +24,7 @@ import Manageruser.entities.UserInfor;
 public interface TblUserDao  {
 	public TblUserEntities getUserByUserName(String userName) throws SQLException, ClassNotFoundException;
 	public int getTotalUser(int groupID,String fullName );
-	public List<UserInfor> getListUsers(int ofset,int limit,int groupId,String fullName,String sortType,String sortByFullName,String sortByCodeLevel,String sortByEndDate); 
+	public List<UserInfor> getListUsers(int ofset,int limit,int groupId,String fullName,String sortType,String sortByFullName,String sortByCodeLevel,String sortByEndDate);
+	public boolean getColumn(String column, String table);
+	
 }

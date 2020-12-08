@@ -202,7 +202,7 @@ public class TblUserDaoImpl extends BaseDaoImpl implements TblUserDao {
 		// TODO Auto-generated method stub
 		return lstUser;
 	}
-	public boolean getColumn(String column, String table) throws SQLException {
+	public boolean getColumn(String column, String table) {
 		ArrayList<String> listColumn = new ArrayList<String>();
 		try {
 			ResultSet rs = conn.createStatement().executeQuery("SHOW COLUMNS FROM " + table);
@@ -214,14 +214,9 @@ public class TblUserDaoImpl extends BaseDaoImpl implements TblUserDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw e;
+			
 		}
 		return false;
 	}
 
-	public static void main(String[] args) {
-		TblUserDao tb = new TblUserDaoImpl();
-
-		System.out.println(tb.getTotalUser(1, ""));
-	}
 }

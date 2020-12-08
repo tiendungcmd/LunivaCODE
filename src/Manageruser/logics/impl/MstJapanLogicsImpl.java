@@ -21,9 +21,11 @@ import Manageruser.logics.MstJapanLogics;
  */
 public class MstJapanLogicsImpl implements MstJapanLogics{
 
-	
-
 	@Override
+	/**
+	 * lay danh sách trình độ tiếng Nhật
+	 * return danh sách trình độ tiếng Nhật
+	 */
 	public List<MstJapanEntities> getAllMstJapan() {
 		List<MstJapanEntities> mstJapan = null;
 		MstJapanDAO mst = new MstJapanDaoImpl();

@@ -95,20 +95,12 @@ public class TblUserLogicsImpl implements TblUserLogics {
 
 	
 /**
- * 
+ * xu ly toán tử wildecard
  */
 	@Override
 	public String replaceWildcard(String fullName) {
 		
 		return(Common.replaceWildcard(fullName)) ;
 	}
-	public static void main(String[] args) {
-		TblUserLogics tb = new TblUserLogicsImpl();
-		try {
-			System.out.println(tb.checkExistLoginID("dungdv", "123456"));
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
 }

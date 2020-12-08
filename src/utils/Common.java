@@ -9,6 +9,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -151,7 +152,67 @@ public class Common {
 		fullName.replace("_", "\\_");
 		return fullName;
 	}
-	public static void main(String[] args) {
-		System.out.println(getListPaging(60, 5, 10));
+	/**
+	 * Lay nam hien tai
+	 * @return nam hien tai
+	 */
+	public static int getYearNow() {
+		Calendar cal = Calendar.getInstance();
+		return cal.get(Calendar.YEAR);
+		
 	}
+	/**
+	 * Lay thang hien tai
+	 * @return thang hien tai
+	 */
+	public static int getMonthNow() {
+		Calendar cal = Calendar.getInstance();
+		return cal.get(Calendar.MONTH);
+	}
+	/**
+	 * Lay ngay hien tai
+	 * @return ngay hien tai
+	 */
+	public static int getDayNow() {
+		Calendar cal = Calendar.getInstance();
+		return cal.get(Calendar.DATE);
+	}
+	/**
+	 * Lay danh sach cac năm từ 1900 - năm hiện tại
+	 * @param yearFrom năm 1900
+	 * @param yearTo năm hiện tại
+	 * @return danh sách các năm
+	 */
+	public static List<Integer> getListYear(int yearFrom,int yearTo) {
+		List<Integer> lstYear = new ArrayList();
+		
+		for(int i=yearFrom;i<=yearTo;i++) {
+			lstYear.add(i);
+		}
+		return lstYear;
+		
+	}
+	/**
+	 * Lấy danh sách tháng
+	 * @return danh sách tháng
+	 */
+	public static List<Integer> getListMonth(){
+		List<Integer> lstMonth = new ArrayList();
+		for(int i=1;i<=12;i++) {
+			lstMonth.add(i);
+		}
+		return lstMonth;
+	}
+	/**
+	 * lay danh sách ngày
+	 * @return danh sách ngày
+	 */
+	public static List<Integer> getListDay(){
+		List<Integer> lstDay = new ArrayList();
+		for(int i=1;i<=31;i++) {
+			lstDay.add(i);
+		}
+		return lstDay;
+	}
+	
 }
