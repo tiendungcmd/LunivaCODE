@@ -105,7 +105,6 @@ public class ListUserController extends HttpServlet {
 			case "paging":
 				sortType = request.getParameter("sortType");
 				fullName = request.getParameter("fullName");
-
 				grId = Integer.parseInt(request.getParameter("group_id"));
 				sortValue = String.valueOf(request.getParameter("sortValue"));
 				if ("full_name".equals(sortType)) {
@@ -162,7 +161,6 @@ public class ListUserController extends HttpServlet {
 			request.setAttribute("sortByEndDate", sortByEndDate);
 			request.setAttribute("limit", limit);
 			request.setAttribute("limitPage", limitPage);
-
 			request.setAttribute("lstPaging", lstPaging);
 			request.setAttribute("totalPage", totalPage);
 			//set cac gia tri len session

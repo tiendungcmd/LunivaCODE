@@ -55,7 +55,6 @@ public class LoginController extends HttpServlet {
 			// khoi tao doi tuong validate
 			ValidateUser validateUser = new ValidateUser();
 			List<String> lstErr;
-
 			// lay list danh sach err neu dang nhap co loi
 			lstErr = validateUser.validateLogin(name, pass);
 			// Kiem tra danh sach loi
@@ -68,13 +67,11 @@ public class LoginController extends HttpServlet {
 				session.setMaxInactiveInterval(100);
 				// chuyen den MH ADM002
 				response.sendRedirect("ListUserController");
-
 			} else {
 				// dua loi vao listMessError
 				request.setAttribute("listMessError", lstErr);
 				// gan loginName vào req
 				request.setAttribute("loginName", name);
-
 				RequestDispatcher dispatcher = request.getRequestDispatcher(Constant.LINK_ADM001_JSP);
 				// bat dau chuyen huong
 				dispatcher.forward(request, response);

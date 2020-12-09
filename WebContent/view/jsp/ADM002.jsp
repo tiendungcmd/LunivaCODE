@@ -55,7 +55,7 @@
 								</select></td>
 								<td align="left">
 								<input class="btn" type="submit" name="search" value="検索" /> 
-								<a  href="AddUserInputController"><input type="button"  value="新規追加" /></a>
+								<input class="btn" type="button"  onclick='window.location.href="AddUserInputController"' value="新規追加" />
 								</td>
 							</tr>
 						</table>

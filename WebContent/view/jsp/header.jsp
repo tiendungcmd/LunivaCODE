@@ -16,7 +16,7 @@
 						src="<%=request.getContextPath()%>/view/images/logo-manager-user.gif"
 						alt="Luvina" />
 					<td>
-					<td align="left"><a href="Logout.do">ログアウト</a> &nbsp; <c:url
+					<td align="left"><a href="Login.do">ログアウト</a> &nbsp; <c:url
 							var="back" value="ListUserController">
 							<c:param name="action" value="back"></c:param>
 							<c:param name="sortType" value="${full_name }"></c:param>

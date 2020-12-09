@@ -27,7 +27,9 @@
 			</tr>
 			<tr>
 				<td class="errMsg">
-					<div style="padding-left: 120px">&nbsp;</div>
+					<div style="padding-left: 120px">
+						&nbsp;
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +54,8 @@
 										</c:forEach>
 
 
-								</select> <span> &nbsp; &nbsp; &nbsp; </span></td>
+								</select> <span> &nbsp; &nbsp; &nbsp;
+								</span></td>
 							</tr>
 							<tr>
 								<td class="lbl_left"><font color="red">*</font> 氏名:</td>
@@ -81,15 +84,21 @@
 										</c:forEach>
 								</select>年 <select>
 										<c:forEach items="${lstMonth}" var="month">
-										<c:if test="${month==usInfor.listDMY.get(1)}"><option value="${month}">${month}</option></c:if>
-										<c:if test="${month != usInfor.listDMY.get(0) }">
+											<c:if test="${month==usInfor.listDMY.get(1)}">
+												<option value="${month}" selected="selected">${month+1}</option>
+											</c:if>
+											<c:if test="${month != usInfor.listDMY.get(1) }">
 												<option value="${month}">${month}</option>
 											</c:if>
 										</c:forEach>
 								</select>月 <select>
 										<c:forEach items="${lstDay}" var="day">
-										<c:if test="${day==usInfor.listDMY.get(2)}"><option value="${day}">${day}</option></c:if>
-											<c:if test="${day!=usInfor.listDMY.get(2)}"><option value="${day}">${day}</option></c:if>
+											<c:if test="${day==usInfor.listDMY.get(2)}">
+												<option value="${day}" selected="selected">${day}</option>
+											</c:if>
+											<c:if test="${day!=usInfor.listDMY.get(2)}">
+												<option value="${day}">${day}</option>
+											</c:if>
 										</c:forEach>
 								</select>日</td>
 							</tr>
@@ -137,18 +146,33 @@
 								<td class="lbl_left">資格交付日:</td>
 								<td align="left"><select>
 
-										<c:forEach items="${lstYear }" var="year">
-											<option value="${year}">${year}</option>
+										<c:forEach items="${lstYear}" var="year">
+											<c:if test="${year == usInfor.listDMY.get(0) }">
+												<option value="${year}" selected="selected">${year}</option>
+											</c:if>
+											<c:if test="${year != usInfor.listDMY.get(0) }">
+												<option value="${year}">${year}</option>
+											</c:if>
 										</c:forEach>
 								</select>年 <select>
 
-										<c:forEach items="${lstMonth}" var="lstMonth">
-											<option value="${lstMonth }">${lstMonth }</option>
+										<c:forEach items="${lstMonth}" var="month">
+											<c:if test="${month==usInfor.listDMY.get(1)}">
+												<option value="${month}" selected="selected">${month+1}</option>
+											</c:if>
+											<c:if test="${month != usInfor.listDMY.get(1) }">
+												<option value="${month}">${month}</option>
+											</c:if>
 										</c:forEach>
 								</select>月 <select>
 
-										<c:forEach items="${lstDay }" var="lstDay">
-											<option value="${ lstDay}">${lstDay }</option>
+										<c:forEach items="${lstDay}" var="day">
+											<c:if test="${day==usInfor.listDMY.get(2)}">
+												<option value="${day}" selected="selected">${day}</option>
+											</c:if>
+											<c:if test="${day!=usInfor.listDMY.get(2)}">
+												<option value="${day}">${day}</option>
+											</c:if>
 										</c:forEach>
 								</select>日</td>
 							</tr>
@@ -156,16 +180,31 @@
 								<td class="lbl_left">失効日:</td>
 								<td align="left"><select>
 
-										<c:forEach items="${lstYear }" var="year">
-											<option value="${year}">${year}</option>
+										<c:forEach items="${lstYear}" var="year">
+											<c:if test="${year == usInfor.listDMY.get(0) }">
+												<option value="${year}" selected="selected">${year}</option>
+											</c:if>
+											<c:if test="${year != usInfor.listDMY.get(0) }">
+												<option value="${year}">${year}</option>
+											</c:if>
 										</c:forEach>
 								</select>年 <select>
-										<c:forEach items="${lstMonth}" var="lstMonth">
-											<option value="${lstMonth }">${lstMonth }</option>
+										<c:forEach items="${lstMonth}" var="month">
+											<c:if test="${month==usInfor.listDMY.get(1)}">
+												<option value="${month}" selected="selected">${month+1}</option>
+											</c:if>
+											<c:if test="${month != usInfor.listDMY.get(1) }">
+												<option value="${month}">${month}</option>
+											</c:if>
 										</c:forEach>
 								</select>月 <select>
-										<c:forEach items="${lstDay }" var="lstDay">
-											<option value="${ lstDay}">${lstDay }</option>
+										<c:forEach items="${lstDay}" var="day">
+											<c:if test="${day==usInfor.listDMY.get(2)}">
+												<option value="${day}" selected="selected">${day}</option>
+											</c:if>
+											<c:if test="${day!=usInfor.listDMY.get(2)}">
+												<option value="${day}">${day}</option>
+											</c:if>
 										</c:forEach>
 								</select>日</td>
 							</tr>
@@ -174,19 +213,24 @@
 								<td align="left"><input class="txBox" type="text"
 									name="total" value="${usInfor.total}" size="5"
 									onfocus="this.style.borderColor='#0066ff';"
-									onblur="this.style.borderColor='#aaaaaa';" /></td>
+									onblur="this.style.borderColor='#aaaaaa';" />
+									</td>
 							</tr>
 						</table>
 					</div>
 				</td>
 			</tr>
 		</table>
-		<div style="padding-left: 100px;">&nbsp;</div>
+		<div style="padding-left: 100px;">
+			&nbsp;
+		</div>
 		<!-- Begin vung button -->
 		<div style="padding-left: 45px;">
 			<table border="0" cellpadding="4" cellspacing="0" width="300px">
 				<tr>
-					<th width="200px" align="center">&nbsp;</th>
+					<th width="200px" align="center">
+						&nbsp;
+					</th>
 					<td><input class="btn" type="submit" value="確認" /></td>
 					<td><input class="btn" type="button" value="戻る" /></td>
 				</tr>

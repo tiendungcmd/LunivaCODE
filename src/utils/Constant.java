@@ -5,12 +5,12 @@
 package utils;
 
 /**
- * @author LA-PM
+ * @author Bùi Tiến Dũng
  *
  */
 public class Constant {
 
-	//public static final String PROPERTIES_DATABASE_PATH = null;
+	
 
 	// đường dẫn đến database.properties
 			public static final String PROPERTIES_DATABASE_PATH = "properties/database.properties";

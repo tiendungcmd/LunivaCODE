@@ -1,3 +1,7 @@
+/**
+ * Coppyright (C)  2020 Luvina
+ * Constant.java, Nov 17, 2020, BuiTienDung
+ */
 package Manageruser.controllers;
 
 import java.io.IOException;
@@ -42,22 +46,27 @@ public class AddUserInputController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		UserInfor usInfor = new UserInfor();
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		if (Common.checkLogin(request.getSession())) {
-			// set gia tri cho select box
-			setDataLogic(request);
-			// lay gia tri cho
-			usInfor = getDefaultValue(request);
-			request.setAttribute("usInfor", usInfor);
-			RequestDispatcher dispatcher = request.getRequestDispatcher(Constant.LINK_ADM003_JSP);
-			dispatcher.forward(request, response);
-		} else {
-			// neu chua dang nhap quay ve man hinh ADM001
-			response.sendRedirect(Constant.URL_LOGIN);
+		try {
+			// TODO Auto-generated method stub
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			UserInfor usInfor = new UserInfor();
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+			if (Common.checkLogin(request.getSession())) {
+				// set gia tri cho select box
+				setDataLogic(request);
+				// lay gia tri cho
+				usInfor = getDefaultValue(request);
+				request.setAttribute("usInfor", usInfor);
+				RequestDispatcher dispatcher = request.getRequestDispatcher(Constant.LINK_ADM003_JSP);
+				dispatcher.forward(request, response);
+			} else {
+				// neu chua dang nhap quay ve man hinh ADM001
+				response.sendRedirect(Constant.URL_LOGIN);
+			}
+
+		} catch (Exception e) {
+
 		}
 	}
 
@@ -103,11 +112,8 @@ public class AddUserInputController extends HttpServlet {
 		UserInfor usInfor = new UserInfor();
 		MessageErrorProperties mes = new MessageErrorProperties();
 		// khai bao
-		String loginName = "";
-		// int yearNow = Common.getYearNow();
-		// int monthNow = Common.getMonthNow();
-		// int dayNow = Common.getDayNow();
-		// lay gia tri default
+		String loginName = Constant.FULL_NAME;
+
 		usInfor.setLogin_name(loginName);
 		usInfor.setGroup_name(mes.getValueByKey("GROUP_NAME"));
 		usInfor.setFull_name(Constant.FULL_NAME);
@@ -118,24 +124,7 @@ public class AddUserInputController extends HttpServlet {
 		usInfor.setName_level(mes.getValueByKey("NAME_LEVEL"));
 		usInfor.setTotal(Constant.TOLTAL);
 		usInfor.setListDMY(Common.getListDMY());
-		// Date birthday = new Date( yearNow ,monthNow,dayNow);
-		// usInfor.setBirthday(birthday);
-		// lay gia tri id
-		// usInfor.setUser_id(Integer.parseInt(request.getParameter("id")));
-		// //lay gia tri group_name
-		// usInfor.setGroup_name(request.getParameter("group_name"));
-		// usInfor.setLogin_name(request.getParameter("login_name"));
-		// usInfor.setFull_name(request.getParameter("full_name"));
-		// usInfor.setFull_name_kana(request.getParameter("full_name_kana"));
-		// SimpleDateFormat.parse(request.getParameter("birthday"));
-		// usInfor.setBirthday( );
 
-		// request.getParameter("id");
-
-		// gan len request
-		// request.setAttribute("yearNow", yearNow);
-		// request.setAttribute("monthNow", monthNow);
-		// request.setAttribute("dayNow", dayNow);
 		return usInfor;
 	}
 
