@@ -27,27 +27,85 @@ public class UserInfor {
 	public String pass;
 	public Date start_date;
 	public List<Integer> listDMY;
+	public List<Integer>listBirth;
+	public List<Integer>listEndDate;
+	public List<Integer> listStartdate;
+	
+	
+	public UserInfor(int user_id, String full_name, Date birthday, String email, String tel, String group_name,
+			String name_level, Date end_date, int total, int getUser_id, String login_name, String full_name_kana,
+			String pass, Date start_date, List<Integer> listDMY, List<Integer> listBirth, List<Integer> listEndDate,
+			List<Integer> listStartdate) {
+		super();
+		this.user_id = user_id;
+		this.full_name = full_name;
+		this.birthday = birthday;
+		this.email = email;
+		this.tel = tel;
+		this.group_name = group_name;
+		this.name_level = name_level;
+		this.end_date = end_date;
+		this.total = total;
+		this.getUser_id = getUser_id;
+		this.login_name = login_name;
+		this.full_name_kana = full_name_kana;
+		this.pass = pass;
+		this.start_date = start_date;
+		this.listDMY = listDMY;
+		this.listBirth = listBirth;
+		this.listEndDate = listEndDate;
+		this.listStartdate = listStartdate;
+	}
+
+
+
+
+	public List<Integer> getListBirth() {
+		return listBirth;
+	}
+
+
+
+
+	public void setListBirth(List<Integer> listBirth) {
+		this.listBirth = listBirth;
+	}
+
+
+
+
+	public List<Integer> getListEndDate() {
+		return listEndDate;
+	}
+
+
+
+
+	public void setListEndDate(List<Integer> listEndDate) {
+		this.listEndDate = listEndDate;
+	}
+
+
+
+
+	public List<Integer> getListStartdate() {
+		return listStartdate;
+	}
+
+
+
+
+	public void setListStartdate(List<Integer> listStartdate) {
+		this.listStartdate = listStartdate;
+	}
+
+
+
+
 	public UserInfor() {
 
 	}
 
-	
-
-	@Override
-	public String toString() {
-		return "UserInfor [user_id=" + user_id + ", full_name=" + full_name + ", birthday=" + birthday + ", email="
-				+ email + ", tel=" + tel + ", group_name=" + group_name + ", name_level=" + name_level + ", end_date="
-				+ end_date + ", total=" + total + ", getUser_id=" + getUser_id + ", login_name=" + login_name
-				+ ", full_name_kana=" + full_name_kana + ", pass=" + pass + ", start_date=" + start_date + ", ListDMY="
-				+ listDMY + "]";
-	}
-
-
-
-	
-
-
-	
 
 
 

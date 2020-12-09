@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Manageruser.entities.UserInfor;
 import Manageruser.logics.TblUserLogics;
 import Manageruser.logics.impl.TblUserLogicsImpl;
 import Manageruser.properties.DatabaseProperties;
@@ -29,7 +30,7 @@ public class ValidateUser {
 	 */
 	public List<String> validateLogin(String username, String password) throws SQLException, ClassNotFoundException {
 
-		TblUserLogicsImpl tblUerLogics = new TblUserLogicsImpl();
+		TblUserLogics tblUerLogics = new TblUserLogicsImpl();
 		List<String> lstErr = new ArrayList<String>();
 
 		// kiểm tra nhập username hoặc password có rỗng hay không
@@ -48,6 +49,18 @@ public class ValidateUser {
 		}
 		return lstErr;
 	}
-
+	/**
+	 *  Kiểm tra thông tin được nhập từ màn hình ADM003
+	 * @param user đôi tượng cần kiểm tra
+	 * @return danh sách lỗi 
+	 */
+//	public  List<String> validateUserInfor(UserInfor user){
+//		TblUserLogics tblUserLogics = new TblUserLogicsImpl();
+//		List<String> lstErr = new ArrayList<>();
+//		//kiểm tra 
+//		
+//		return null;
+//		
+//	}
 	
 }

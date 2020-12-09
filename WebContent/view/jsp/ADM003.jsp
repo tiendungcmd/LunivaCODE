@@ -15,9 +15,9 @@
 	<!-- Begin vung header -->
 	<jsp:include page="header.jsp"></jsp:include>
 	<!-- End vung header -->
-
 	<!-- Begin vung input-->
-	<form action="ADM004.html" method="post" name="inputform">
+	<form action="AddUserConfirmController" method="post" name="inputform">
+	<input name="action" value="submit" style="display:none">
 		<table class="tbl_input" border="0" width="75%" cellpadding="0"
 			cellspacing="0">
 			<tr>
@@ -67,13 +67,13 @@
 							<tr>
 								<td class="lbl_left">カタカナ氏名:</td>
 								<td align="left"><input class="txBox" type="text"
-									name="name" value="${usInfor.full_name_kana }" size="30"
+									name="name_kana" value="${usInfor.full_name_kana }" size="30"
 									onfocus="this.style.borderColor='#0066ff';"
 									onblur="this.style.borderColor='#aaaaaa';" /></td>
 							</tr>
 							<tr>
 								<td class="lbl_left"><font color="red">*</font> 生年月日:</td>
-								<td align="left"><select>
+								<td align="left"><select name="yearBirth">
 										<c:forEach items="${lstYear}" var="year">
 											<c:if test="${year == usInfor.listDMY.get(0) }">
 												<option value="${year}" selected="selected">${year}</option>
@@ -82,7 +82,7 @@
 												<option value="${year}">${year}</option>
 											</c:if>
 										</c:forEach>
-								</select>年 <select>
+								</select>年 <select name="monthBirth">
 										<c:forEach items="${lstMonth}" var="month">
 											<c:if test="${month==usInfor.listDMY.get(1)}">
 												<option value="${month}" selected="selected">${month+1}</option>
@@ -91,7 +91,7 @@
 												<option value="${month}">${month}</option>
 											</c:if>
 										</c:forEach>
-								</select>月 <select>
+								</select>月 <select name ="dayBirth">
 										<c:forEach items="${lstDay}" var="day">
 											<c:if test="${day==usInfor.listDMY.get(2)}">
 												<option value="${day}" selected="selected">${day}</option>
@@ -119,14 +119,14 @@
 							<tr>
 								<td class="lbl_left"><font color="red">*</font> パスワード:</td>
 								<td align="left"><input class="txBox" type="password"
-									name="email" value="${usInfor.pass }" size="30"
+									name="pass" value="${usInfor.pass }" size="30"
 									onfocus="this.style.borderColor='#0066ff';"
 									onblur="this.style.borderColor='#aaaaaa';" /></td>
 							</tr>
 							<tr>
 								<td class="lbl_left">パスワード（確認）:</td>
 								<td align="left"><input class="txBox" type="password"
-									name="email" value="${usInfor.pass }" size="30"
+									name="passRemind" value="${usInfor.pass }" size="30"
 									onfocus="this.style.borderColor='#0066ff';"
 									onblur="this.style.borderColor='#aaaaaa';" /></td>
 							</tr>
@@ -144,7 +144,7 @@
 							</tr>
 							<tr>
 								<td class="lbl_left">資格交付日:</td>
-								<td align="left"><select>
+								<td align="left"><select name="yearStart">
 
 										<c:forEach items="${lstYear}" var="year">
 											<c:if test="${year == usInfor.listDMY.get(0) }">
@@ -154,7 +154,7 @@
 												<option value="${year}">${year}</option>
 											</c:if>
 										</c:forEach>
-								</select>年 <select>
+								</select>年 <select name="monthStart">
 
 										<c:forEach items="${lstMonth}" var="month">
 											<c:if test="${month==usInfor.listDMY.get(1)}">
@@ -164,7 +164,7 @@
 												<option value="${month}">${month}</option>
 											</c:if>
 										</c:forEach>
-								</select>月 <select>
+								</select>月 <select name="dayStart">
 
 										<c:forEach items="${lstDay}" var="day">
 											<c:if test="${day==usInfor.listDMY.get(2)}">
@@ -178,7 +178,7 @@
 							</tr>
 							<tr>
 								<td class="lbl_left">失効日:</td>
-								<td align="left"><select>
+								<td align="left"><select name="yearEnd">
 
 										<c:forEach items="${lstYear}" var="year">
 											<c:if test="${year == usInfor.listDMY.get(0) }">
@@ -188,7 +188,7 @@
 												<option value="${year}">${year}</option>
 											</c:if>
 										</c:forEach>
-								</select>年 <select>
+								</select>年 <select name="monthEnd">
 										<c:forEach items="${lstMonth}" var="month">
 											<c:if test="${month==usInfor.listDMY.get(1)}">
 												<option value="${month}" selected="selected">${month+1}</option>
@@ -197,7 +197,7 @@
 												<option value="${month}">${month}</option>
 											</c:if>
 										</c:forEach>
-								</select>月 <select>
+								</select>月 <select name="dayEnd">
 										<c:forEach items="${lstDay}" var="day">
 											<c:if test="${day==usInfor.listDMY.get(2)}">
 												<option value="${day}" selected="selected">${day}</option>
@@ -235,15 +235,13 @@
 					<td><input class="btn" type="button" value="戻る" /></td>
 				</tr>
 			</table>
+			</input>
 			<!-- End vung button -->
 	</form>
 	<!-- End vung input -->
 
 	<!-- Begin vung footer -->
-	<div class="lbl_footer">
-		<br><br><br><br> Copyright © 2010 ルビナソフトウエア株式会社.
-						All rights reserved. 
-	</div>
+<jsp:include page="footer.jsp"></jsp:include>
 	<!-- End vung footer -->
 </body>
 
