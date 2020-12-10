@@ -16,14 +16,14 @@ import java.util.List;
 import Manageruser.dao.TblUserDao;
 import Manageruser.dao.impl.TblUserDaoImpl;
 import Manageruser.entities.TblUserEntities;
-import Manageruser.entities.UserInfor;
+import Manageruser.entities.UserInforEntities;
 /**
  * @author Bùi Tiến Dũng
  *
  */
 public interface TblUserLogics {
 	public boolean checkExistLoginID(String username, String password) throws ClassNotFoundException ;
-	public List<UserInfor> getListUsers(int ofset,int limit,int grId,String fullName,String sortType,String sortByFullName,String sortByCodeLevel,String sortByEndDate);
+	public List<UserInforEntities> getListUsers(int ofset,int limit,int grId,String fullName,String sortType,String sortByFullName,String sortByCodeLevel,String sortByEndDate);
 	public String replaceWildcard(String fullName);
 	public int getTotalRecords(int groupId, String fullName);
 }

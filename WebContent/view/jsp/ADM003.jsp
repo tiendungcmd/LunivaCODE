@@ -16,8 +16,8 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<!-- End vung header -->
 	<!-- Begin vung input-->
-	<form action="AddUserInputController" method="post" name="inputform">
-	<input name="action" value="submit" style="display:none">
+	<form action="AdduserValidate.do" method="post" name="inputform">
+	<input name="action" value="submit" style="display:none;"/>
 		<table class="tbl_input" border="0" width="75%" cellpadding="0"
 			cellspacing="0">
 			<tr>
@@ -38,9 +38,9 @@
 						<table border="0" width="100%" class="tbl_input" cellpadding="4"
 							cellspacing="0">
 							<tr>
-								<td class="lbl_left" name="login_name"><font color="red">*</font>
+								<td class="lbl_left" ><font color="red">*</font>
 									アカウント名:</td>
-								<td align="left"><input class="txBox" type="text" name="id"
+								<td align="left"><input class="txBox" type="text" name="login_name"
 									value="${usInfor.login_name }" size="15"
 									onfocus="this.style.borderColor='#0066ff';"
 									onblur="this.style.borderColor='#aaaaaa';" /></td>
@@ -52,8 +52,6 @@
 										<c:forEach items="${lstGroup}" var="lstGroup">
 											<option value="${lstGroup.group_id}">${lstGroup.group_name }</option>
 										</c:forEach>
-
-
 								</select> <span> &nbsp; &nbsp; &nbsp;
 								</span></td>
 							</tr>
@@ -231,11 +229,11 @@
 					<th width="200px" align="center">
 						&nbsp;
 					</th>
-					<td><input class="btn" type="submit" value="確認" /></td>
+					<td><input class="btn" type="submit"  value="確認" /></td>
 					<td><input class="btn" type="button" value="戻る" /></td>
 				</tr>
 			</table>
-			</input>
+			</div>
 			<!-- End vung button -->
 	</form>
 	<!-- End vung input -->
@@ -244,5 +242,4 @@
 <jsp:include page="footer.jsp"></jsp:include>
 	<!-- End vung footer -->
 </body>
-
 </html>

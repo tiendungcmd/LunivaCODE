@@ -14,7 +14,7 @@ import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
 
 import Manageruser.dao.TblUserDao;
 import Manageruser.entities.TblUserEntities;
-import Manageruser.entities.UserInfor;
+import Manageruser.entities.UserInforEntities;
 import utils.Constant;
 
 /**
@@ -131,10 +131,10 @@ public class TblUserDaoImpl extends BaseDaoImpl implements TblUserDao {
 	 * Lay danh sach user
 	 */
 	@Override
-	public List<UserInfor> getListUsers(int ofset, int limit, int groupId, String fullName, String sortType,
+	public List<UserInforEntities> getListUsers(int ofset, int limit, int groupId, String fullName, String sortType,
 			String sortByFullName, String sortByCodeLevel, String sortByEndDate) {
 
-		List<UserInfor> lstUser = new ArrayList<>();
+		List<UserInforEntities> lstUser = new ArrayList<>();
 		try {
 			// tao ket noi
 			connection();
@@ -179,7 +179,7 @@ public class TblUserDaoImpl extends BaseDaoImpl implements TblUserDao {
 				ResultSet rs = pre.executeQuery();
 				// khoi tao doi tuong userinfor
 				while (rs.next()) {
-					UserInfor us = new UserInfor();
+					UserInforEntities us = new UserInforEntities();
 					us.setUser_id(rs.getInt("user_id"));
 					us.setFull_name(rs.getString("full_name"));
 					us.setBirthday(rs.getDate("birthday"));

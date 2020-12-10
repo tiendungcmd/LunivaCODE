@@ -249,5 +249,36 @@ public class Common {
 		}
 		return lstDay;
 	}
-
+	/**
+	 * Kiem tra checkMaxlength
+	 * @param string chuoi can kiem tra
+	 * @param max khoag max cua ki tu
+	 * @return nếu vượt quá max kí tự trả về false, ngược lại trả về true
+	 */
+	public boolean checkMaxlength(String string,int max){
+		boolean check =true;
+		if(string.length()>max){
+			check=false;
+		}
+		return check;
+		
+	}
+//	public boolean checkFomartLogin(String string){
+//		
+//		return false;
+//	}
+	/**
+	 * Kiểm tra độ dài trong khoảng cho trước
+	 * @param string chuỗi cần kiểm tra
+	 * @param a độ dài từ a
+	 * @param b độ dài đến b
+ 	 * @return nếu vượt chuỗi truyền vào ở ngoài độ dài cần kiểm tra thì trả về false,ngược lại trả về true 
+	 */
+	public boolean checkLength(String string ,int a,int b){
+		boolean check =true;
+		if(string.length()< a && string.length()>b){
+			check = false;
+		}
+		return check;
+	}
 }

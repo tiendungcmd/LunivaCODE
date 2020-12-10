@@ -11,7 +11,7 @@ import java.util.List;
  * @author 440TranCung
  *
  */
-public class UserInfor {
+public class UserInforEntities {
 	private int user_id;
 	private String full_name;
 	private Date birthday;
@@ -32,7 +32,20 @@ public class UserInfor {
 	public List<Integer> listStartdate;
 	
 	
-	public UserInfor(int user_id, String full_name, Date birthday, String email, String tel, String group_name,
+	@Override
+	public String toString() {
+		return "UserInforEntities [user_id=" + user_id + ", full_name=" + full_name + ", birthday=" + birthday
+				+ ", email=" + email + ", tel=" + tel + ", group_name=" + group_name + ", name_level=" + name_level
+				+ ", end_date=" + end_date + ", total=" + total + ", getUser_id=" + getUser_id + ", login_name="
+				+ login_name + ", full_name_kana=" + full_name_kana + ", pass=" + pass + ", start_date=" + start_date
+				+ ", listDMY=" + listDMY + ", listBirth=" + listBirth + ", listEndDate=" + listEndDate
+				+ ", listStartdate=" + listStartdate + "]";
+	}
+
+
+
+
+	public UserInforEntities(int user_id, String full_name, Date birthday, String email, String tel, String group_name,
 			String name_level, Date end_date, int total, int getUser_id, String login_name, String full_name_kana,
 			String pass, Date start_date, List<Integer> listDMY, List<Integer> listBirth, List<Integer> listEndDate,
 			List<Integer> listStartdate) {
@@ -102,7 +115,7 @@ public class UserInfor {
 
 
 
-	public UserInfor() {
+	public UserInforEntities() {
 
 	}
 
@@ -147,7 +160,7 @@ public class UserInfor {
 
 
 
-	public UserInfor(int user_id, String full_name, Date birthday, String email, String tel, String group_name,
+	public UserInforEntities(int user_id, String full_name, Date birthday, String email, String tel, String group_name,
 			String name_level, Date end_date, int total, int getUser_id, String login_name, String full_name_kana,
 			String pass, Date start_date, List<Integer> listDMY) {
 		super();

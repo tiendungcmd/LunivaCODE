@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Manageruser.entities.MstGroupEntities;
-import Manageruser.entities.UserInfor;
+import Manageruser.entities.UserInforEntities;
 import Manageruser.logics.MstGroupLogics;
 import Manageruser.logics.TblUserLogics;
 import Manageruser.logics.impl.MstGroupLogicsImpl;
@@ -54,7 +54,7 @@ public class ListUserController extends HttpServlet {
 			List<MstGroupEntities> lstGr = new ArrayList<>();
 			MstGroupLogics mstGr = new MstGroupLogicsImpl();
 			// khoi tao list User
-			List<UserInfor> lstUser = new ArrayList<>();
+			List<UserInforEntities> lstUser = new ArrayList<>();
 			TblUserLogics tbUser = new TblUserLogicsImpl();
 
 			List<Integer> lstPaging = new ArrayList<Integer>();

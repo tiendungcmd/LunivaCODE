@@ -12,7 +12,7 @@ import java.util.List;
 import Manageruser.dao.TblUserDao;
 import Manageruser.dao.impl.TblUserDaoImpl;
 import Manageruser.entities.TblUserEntities;
-import Manageruser.entities.UserInfor;
+import Manageruser.entities.UserInforEntities;
 import Manageruser.logics.TblUserLogics;
 import utils.Common;
 
@@ -87,7 +87,7 @@ public class TblUserLogicsImpl implements TblUserLogics {
 	 * @param sortByEndDate
 	 * @return danh sach user
 	 */
-	public List<UserInfor> getListUsers(int ofset, int limit, int groupId,String fullName, String sortType, String sortByFullName,
+	public List<UserInforEntities> getListUsers(int ofset, int limit, int groupId,String fullName, String sortType, String sortByFullName,
 			String sortByCodeLevel, String sortByEndDate) {
 		TblUserDao tb = new TblUserDaoImpl();
 		return tb.getListUsers(ofset, limit, groupId,fullName, sortType, sortByFullName, sortByCodeLevel, sortByEndDate);

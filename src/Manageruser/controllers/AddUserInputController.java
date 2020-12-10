@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 import Manageruser.entities.MstGroupEntities;
 import Manageruser.entities.MstJapanEntities;
-import Manageruser.entities.UserInfor;
+import Manageruser.entities.UserInforEntities;
 import Manageruser.logics.MstGroupLogics;
 import Manageruser.logics.MstJapanLogics;
 import Manageruser.logics.impl.MstGroupLogicsImpl;
@@ -31,13 +31,39 @@ import utils.Constant;
  * @author Bui Tien Dung
  */
 
-	@WebServlet(urlPatterns = {"/AddUserInputController", "/AdduserValidate.do"})
+	@WebServlet(urlPatterns = {"/AddUserInput.do", "/AdduserValidate.do"})
 public class AddUserInputController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	/**
+	 *  hiển thị giá trị sang ADM004 sau khi submit
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		try {
+			// kiểm tra login
+			if (Common.checkLogin(request.getSession())) {
+				// khởi tạo đối tượng userinfor
+				UserInforEntities usInfor = new UserInforEntities();
+				// lấy giá trị từ MH ADM003 gán thông tin cho đối User
+				usInfor = getDefaultValue(request);
+				HttpSession session = request.getSession();
+				session.setAttribute(Constant.USER_INFOR_KEY, usInfor);
+				
+				request.setCharacterEncoding("UTF-8");
+				response.setCharacterEncoding("UTF-8");
+				response.sendRedirect(Constant.URL_ADDUSERCONFIRM);
+			} else {
+				// neu chua dang nhap quay ve man hinh ADM001
+				response.sendRedirect(Constant.URL_LOGIN);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * Hiển thị thông tin màn hình ADM003
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -45,16 +71,14 @@ public class AddUserInputController extends HttpServlet {
 			// TODO Auto-generated method stub
 			request.setCharacterEncoding("UTF-8");
 			response.setCharacterEncoding("UTF-8");
-			UserInfor usInfor = new UserInfor();
-			response.getWriter().append("Served at: ").append(request.getContextPath());
+			UserInforEntities usInfor = new UserInforEntities();
+			
 			if (Common.checkLogin(request.getSession())) {
 				// set gia tri cho select box
 				setDataLogic(request);
 				// lay gia tri cho
 				usInfor = getDefaultValue(request);
 				request.setAttribute("usInfor", usInfor);
-			
-				
 				RequestDispatcher dispatcher = request.getRequestDispatcher(Constant.LINK_ADM003_JSP);
 				dispatcher.forward(request, response);
 			} else {
@@ -68,9 +92,9 @@ public class AddUserInputController extends HttpServlet {
 	}
 
 	/**
-	 * set cas gia tri cho cac hang muc o select box
+	 * set các gia tri cho cac hang muc o select box
 	 * 
-	 * @param request lay thong tin từ 
+	 * @param request 
 	 */
 
 
@@ -102,15 +126,15 @@ public class AddUserInputController extends HttpServlet {
 	}
 
 	/**
-	 * get gia tri default cho man hinh ADM003
+	 * lấy gia tri  cho man hinh ADM003
 	 * 
-	 * @param request
+	 * @param request  
+	 * @return Thông tin đối tượng userInfor
 	 */
-	private UserInfor getDefaultValue(HttpServletRequest request) {
+	private UserInforEntities getDefaultValue(HttpServletRequest request) {
 		// khoi tao doi tuong userinfor
-		UserInfor usInfor = new UserInfor();
+		UserInforEntities usInfor = new UserInforEntities();
 		MessageErrorProperties mes = new MessageErrorProperties();
-
 		String action = request.getParameter("action");
 		if (action == null) {
 			action = "default";
@@ -129,10 +153,11 @@ public class AddUserInputController extends HttpServlet {
 			usInfor.setPass(Constant.PASS);
 			usInfor.setName_level(mes.getValueByKey("NAME_LEVEL"));
 			usInfor.setTotal(Constant.TOLTAL);
-
 			usInfor.setListDMY(Common.getListDMY());
+			System.out.println("vao ca default");
 			break;
 		case "submit":
+			System.out.println("vao submit roif");
 			List<Integer> lstBirth = new ArrayList<>();
 			List<Integer> lstStartDate = new ArrayList<>();
 			List<Integer> lstEndDate = new ArrayList<>();
@@ -148,8 +173,9 @@ public class AddUserInputController extends HttpServlet {
 			lstBirth.add(year1);
 			lstBirth.add(month1);
 			lstBirth.add(day1);
-			// gan cho user
+			// gán giá trị listBirth 
 			usInfor.setListBirth(lstBirth);
+			
 			usInfor.setEmail(request.getParameter("email"));
 			usInfor.setTel(request.getParameter("tel"));
 			usInfor.setPass(request.getParameter("pass"));
@@ -162,7 +188,7 @@ public class AddUserInputController extends HttpServlet {
 			lstStartDate.add(yearStart);
 			lstStartDate.add(monthStart);
 			lstStartDate.add(dayStart);
-			// gna cho user
+			// gán giá trị listStartdate
 			usInfor.setListStartdate(lstStartDate);
 			// lay gia tri ngay thang nam cua ngay ket thuc
 			int yearEnd = Integer.parseInt(request.getParameter("yearEnd"));
@@ -180,35 +206,6 @@ public class AddUserInputController extends HttpServlet {
 		return usInfor;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-		try {
-			// kiểm tra login
-			if (Common.checkLogin(request.getSession())) {
-				// khởi tạo đối tượng userinfor
-				UserInfor usInfor = new UserInfor();
-				// lấy giá trị từ MH ADM003 gán thông tin cho đối User
-				usInfor = getDefaultValue(request);
-				HttpSession session = request.getSession();
-				session.setAttribute(Constant.USER_INFOR_KEY, usInfor);
-				System.out.println("lan 1");
-				
-				System.out.println(usInfor);
-				response.sendRedirect("AddUserConfirmController");
-				
-			} else {
-				// neu chua dang nhap quay ve man hinh ADM001
-				response.sendRedirect(Constant.URL_LOGIN);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+	
+	
 }

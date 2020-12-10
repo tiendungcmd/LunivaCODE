@@ -36,6 +36,8 @@ public class Constant {
 			// URL đến LogoutController
 			public static final String URL_LOGOUT = "Logout";
 			public static final int RULE = 1;
+			// URL đến AddUserConfirmController
+						public static final String URL_ADDUSERCONFIRM= "AddUserConfirmController.do";
 			//--------------CÁC HẠNG MỤC DEFAULT------------------
 			public static final int GROUP_ID_DEFAULT = 0;
 			public static final int OFFSET_DEFAULT = 0;

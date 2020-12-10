@@ -15,7 +15,6 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 <!-- End vung header -->	
-
 <!-- Begin vung input-->	
 	<form action="ADM006.html" method="post" name="inputform">	
 	<table  class="tbl_input" border="0" width="75%"  cellpadding="0" cellspacing="0" >			
@@ -42,7 +41,7 @@
 					</tr>
 					<tr>
 						<td class="lbl_left">氏名:</td>
-						<td align="left">Nguyễn Thị Mai Hương</td>
+						<td align="left">${usInfor.full_name}</td>
 					</tr>	
 					<tr>
 						<td class="lbl_left">カタカナ氏名:</td>
@@ -50,34 +49,34 @@
 					</tr>
 					<tr>
 						<td class="lbl_left">生年月日:</td>
-						<td align="left">1983/07/08</td>
+						<td align="left">${usInfor.listBirth}</td>
 					</tr>				
 					<tr>
 						<td class="lbl_left">メールアドレス:</td>
-						<td align="left">ntmhuong@luvina.net</td>
+						<td align="left">${usInfor.email}</td>
 					</tr>
 					<tr>
 						<td class="lbl_left">電話番号:</td>
-						<td align="left">0914326386</td>
+						<td align="left">${usInfor.tel}</td>
 					</tr>	
 					<tr>
 						<th colspan = "2"><a href = "#">日本語能力</a></th>
 					</tr>
 					<tr>
 						<td class="lbl_left">資格:</td>
-						<td align="left">Trình độ tiếng nhật cấp 1</td>
+						<td align="left">${usInfor.name_level}</td>
 					</tr>
 					<tr>
 						<td class="lbl_left">資格交付日:</td>
-						<td align="left">2010/07/08</td>
+						<td align="left">${usInfor.listStartdate}</td>
 					</tr>
 					<tr>
 						<td class="lbl_left">失効日:</td>
-						<td align="left">2011/07/08</td>
+						<td align="left">${usInfor.listEndDate}</td>
 					</tr>	
 					<tr>
 						<td class="lbl_left">点数:</td>
-						<td align="left">290</td>
+						<td align="left">${usInfor.total}</td>
 					</tr>												
 				</table>
 				</div>				
@@ -98,6 +97,7 @@
 				</td>
 		</tr>		
 	</table>
+	</div>
 	<!-- End vung button -->	
 </form>
 <!-- End vung input -->
@@ -106,5 +106,4 @@
 <jsp:include page="footer.jsp"></jsp:include>
 <!-- End vung footer -->
 </body>
-
 </html>
