@@ -30,17 +30,10 @@ import utils.Constant;
 /**
  * @author Bui Tien Dung
  */
-@WebServlet("/AddUserInputController")
+
+	@WebServlet(urlPatterns = {"/AddUserInputController", "/AdduserValidate.do"})
 public class AddUserInputController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public AddUserInputController() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -77,8 +70,10 @@ public class AddUserInputController extends HttpServlet {
 	/**
 	 * set cas gia tri cho cac hang muc o select box
 	 * 
-	 * @param request
+	 * @param request lay thong tin từ 
 	 */
+
+
 	private void setDataLogic(HttpServletRequest request) {
 		// khoi tai mang chua thon tin
 		List<MstGroupEntities> lstGroup = new ArrayList<>();
@@ -202,7 +197,8 @@ public class AddUserInputController extends HttpServlet {
 				usInfor = getDefaultValue(request);
 				HttpSession session = request.getSession();
 				session.setAttribute(Constant.USER_INFOR_KEY, usInfor);
-				System.out.println("tesst");
+				System.out.println("lan 1");
+				
 				System.out.println(usInfor);
 				response.sendRedirect("AddUserConfirmController");
 				
@@ -211,8 +207,8 @@ public class AddUserInputController extends HttpServlet {
 				response.sendRedirect(Constant.URL_LOGIN);
 			}
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
-
+		
 	}
 }

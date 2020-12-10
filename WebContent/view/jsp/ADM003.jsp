@@ -16,7 +16,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<!-- End vung header -->
 	<!-- Begin vung input-->
-	<form action="AddUserConfirmController" method="post" name="inputform">
+	<form action="AddUserInputController" method="post" name="inputform">
 	<input name="action" value="submit" style="display:none">
 		<table class="tbl_input" border="0" width="75%" cellpadding="0"
 			cellspacing="0">
